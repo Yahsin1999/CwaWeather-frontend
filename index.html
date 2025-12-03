@@ -266,6 +266,52 @@
 </head>
 
 <body>
+    <h2>台灣天氣查詢</h2>
+
+    <label for="citySelect">選擇城市：</label>
+    <select id="citySelect" onchange="fetchWeather()">
+        <option value="臺北市">臺北市</option>
+        <option value="新北市">新北市</option>
+        <option value="桃園市">桃園市</option>
+        <option value="臺中市">臺中市</option>
+        <option value="臺南市">臺南市</option>
+        <option value="高雄市">高雄市</option>
+        <option value="基隆市">基隆市</option>
+        <option value="新竹市">新竹市</option>
+        <option value="新竹縣">新竹縣</option>
+        <option value="苗栗縣">苗栗縣</option>
+        <option value="彰化縣">彰化縣</option>
+        <option value="南投縣">南投縣</option>
+        <option value="雲林縣">雲林縣</option>
+        <option value="嘉義市">嘉義市</option>
+        <option value="嘉義縣">嘉義縣</option>
+        <option value="屏東縣">屏東縣</option>
+        <option value="宜蘭縣">宜蘭縣</option>
+        <option value="花蓮縣">花蓮縣</option>
+        <option value="臺東縣">臺東縣</option>
+        <option value="澎湖縣">澎湖縣</option>
+        <option value="金門縣">金門縣</option>
+        <option value="連江縣">連江縣</option>
+    </select>
+
+    <div id="result"></div>
+
+    <script>
+        async function fetchWeather() {
+            const city = document.getElementById("citySelect").value;
+            const res = await fetch(`http://localhost:3000/weather?city=${city}`);
+            const data = await res.json();
+            document.getElementById("result").innerHTML = `
+                <h3>${data.location}</h3>
+                <p>天氣：${data.weather}</p>
+                <p>溫度：${data.temperature}°C</p>
+            `;
+        }
+
+        // 預設載入第一個縣市
+        fetchWeather();
+    </script>
+
     <div id="loading" class="loading-screen">
         <div style="font-size: 4rem; animation: bounce 2s infinite;">☁️</div>
         <p style="color: white; font-weight: bold; margin-top: 20px;">正在觀測雲的流動...</p>
@@ -287,7 +333,12 @@
     </div>
 
     <script>
-        const API_URL = "https://weather--taiwan.zeabur.app/api/weather/:city";
+        async function fetchWeather() {
+        const city = document.getElementById("citySelect").value;
+        const res = await fetch(`https://weather--taiwan.zeabur.app/api/weather/${city}`);
+        const result = await res.json();
+        renderWeather(result.data);
+        }
 
         function getWeatherIcon(weather) {
             if (!weather) return "🌤️";
