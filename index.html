@@ -15,14 +15,13 @@
 
     <style>
         :root {
-            --ac-green: #7DE1A9;
-            --ac-bg-pattern: #8FD8AF;
-            --ac-cream: #FFFEF2;
-            --ac-yellow: #F9F195;
-            --ac-brown: #796452;
-            --ac-blue: #4FB5D9;
-            --ac-dark: #58504A;
-            --ac-card-border: #E6E0C8;
+            --earth-brown: #8B6F47;
+            --earth-light: #E9DCC5;
+            --earth-cream: #FFF9ED;
+            --earth-green: #A7B49E;
+            --earth-yellow: #D8C690;
+            --earth-dark: #5A4A3A;
+            --card-border: #E0D6C2;
         }
 
         * {
@@ -51,11 +50,21 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+
+        .location-select {
+            padding: 6px 12px;
+            border-radius: 12px;
+            background: var(--earth-yellow);
+            color: var(--earth-dark);
+            border: 2px solid white;
+            font-weight: 900;
+            font-size: 1rem;
         }
 
         .location-pill {
@@ -71,23 +80,23 @@
         }
 
         .update-pill {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: white;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.25);
             padding: 4px 10px;
             border-radius: 12px;
         }
 
         .container {
             padding: 20px;
-            max-width: 600px;
+            max-width: 640px;
             /* 限制在大手機寬度 */
             margin: 0 auto;
         }
 
         /* === 核心：今日焦點卡片 === */
         .hero-card {
-            background: var(--ac-cream);
+            background: var(--earth-cream);
             border-radius: 35px;
             padding: 30px 25px;
             text-align: center;
@@ -103,7 +112,7 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--ac-blue);
+            background: var(--earth-green);
             color: white;
             padding: 5px 20px;
             border-radius: 20px;
@@ -141,13 +150,13 @@
         .hero-temp {
             font-size: 4.5rem;
             font-weight: 900;
-            color: var(--ac-brown);
+            color: var(--earth-brown);
             line-height: 1;
         }
 
         .hero-desc {
-            font-size: 1.5rem;
-            color: #8A7B70;
+            font-size: 1.4rem;
+            color: #7A6A5A;
             margin-bottom: 20px;
             font-weight: bold;
         }
@@ -159,7 +168,7 @@
             gap: 15px;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 2px dashed #E0D8C0;
+            border-top: 2px dashed #DCCFB8;
         }
 
         .advice-item {
@@ -177,21 +186,19 @@
         }
 
         .advice-text {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 900;
-            color: var(--ac-brown);
+            color: var(--earth-dark);
             margin: 5px 0;
-            line-height: 1.2;
         }
 
         /* === 稍後預報：橫向滑動區 === */
         .section-title {
             font-size: 1.2rem;
-            color: white;
+            color: var(--earth-dark);
             margin-bottom: 15px;
             margin-left: 10px;
             font-weight: 900;
-            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
         }
 
         .scroll-container {
@@ -210,7 +217,7 @@
 
         .mini-card {
             min-width: 140px;
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--earth-cream);
             border-radius: 25px;
             padding: 20px 15px;
             text-align: center;
@@ -220,7 +227,7 @@
         }
 
         .mini-time {
-            background: var(--ac-green);
+            background: var(--earth-green);
             color: white;
             padding: 3px 10px;
             border-radius: 10px;
@@ -238,7 +245,7 @@
         .mini-temp {
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--ac-dark);
+            color: var(--earth-dark);
         }
 
         /* Loading 畫面 */
@@ -248,7 +255,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--ac-green);
+            background: var(--earth-light);
             display: flex;
             flex-direction: column;
             justify-content: center;
