@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- 使用 Zen Maru Gothic 作為主要的插畫字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
+        <style>
         :root {
             /* 森森天氣的主題色 */
             --primary-brown: #8B6F47;
@@ -126,7 +126,8 @@
         .container {
             padding: 20px;
             max-width: 640px;
-            margin: 0 auto;
+            /* 使用 auto 確保容器在任何尺寸下都置中 */
+            margin: 0 auto; 
         }
 
         /* Hero 卡片 (整體貼紙外觀) */
@@ -219,6 +220,7 @@
         
         .advice-grid {
             display: grid;
+            /* 桌面版/大螢幕預設為兩欄 */
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 20px;
@@ -340,6 +342,58 @@
         .error-icon {
             font-size: 3rem;
             margin-bottom: 10px;
+        }
+
+        /* ============================================== */
+        /* 📱 手機響應式樣式 (Max-width: 650px) 📱 */
+        /* ============================================== */
+        @media (max-width: 650px) {
+            
+            /* 調整主容器 padding，讓內容更貼近邊緣 */
+            .container {
+                padding: 15px 10px; /* 左右邊距減少 */
+            }
+
+            /* 縮小 Hero Card 內的元素，避免過度擁擠 */
+            .hero-icon {
+                font-size: 5rem; /* 縮小圖標 */
+                margin-right: 10px;
+            }
+
+            .hero-temp {
+                font-size: 4.5rem; /* 縮小溫度數字 */
+            }
+            
+            .hero-desc {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            /* 建議區塊：從兩欄改為單欄堆疊 (更適合垂直閱讀) */
+            .advice-grid {
+                grid-template-columns: 1fr; /* 改為單欄 */
+                gap: 10px; /* 減少間距 */
+            }
+            
+            /* 建議項目 padding 稍微縮小 */
+            .advice-item {
+                padding: 12px;
+            }
+            
+            .advice-text {
+                font-size: 1.1rem;
+            }
+
+            /* 確保底部滾動預報卡片寬度合理 */
+            .mini-card {
+                min-width: 120px; /* 稍微縮小，讓更多卡片可以顯示 */
+            }
+
+            /* 城市選單字體在手機上稍微縮小 */
+            .city-select {
+                font-size: 1rem; 
+                padding: 7px 14px;
+            }
         }
     </style>
 </head>
